@@ -22,7 +22,7 @@ export const LINKS = [
 ];
 
 export const MARQUEE_TEXT =
-  "React, Next.js, Node, MongoDb, Tailwind, MySql, Javascript, MySql, Python, C++, ";
+  ",React, Next.js, Node, MongoDb, Tailwind, MySql, Javascript, MySql, Python, C++,";
 
 export const PROJECTS = [
   {
@@ -47,7 +47,7 @@ export const PROJECTS = [
     description:
       "A personal portfolio website to showcase projects and skills.",
     imgSrc: project3,
-    link: "https://mank25.github.io/portfolio/",
+    link: "https://github.com/mank25/portfolio",
   },
   {
     id: 4,
