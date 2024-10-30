@@ -47,7 +47,7 @@ export const PROJECTS = [
     description:
       "A personal portfolio website to showcase projects and skills.",
     imgSrc: project3,
-    link: "",
+    link: "https://mank25.github.io/portfolio/",
   },
   {
     id: 4,
