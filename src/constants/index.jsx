@@ -45,7 +45,7 @@ export const PROJECTS = [
     id: 3,
     title: "Portfolio Website",
     description:
-      "A personal portfolio website to showcase projects and skills.",
+      "A personal portfolio website to showcase projects and skills. ",
     imgSrc: project3,
     link: "https://github.com/mank25/portfolio",
   },
