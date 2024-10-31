@@ -11,6 +11,8 @@ import project1 from "../assets/project1.webp";
 import project2 from "../assets/project2.webp";
 import project3 from "../assets/project3.webp";
 import project4 from "../assets/project4.webp";
+import project5 from "../assets/project5.webp";
+import project6 from "../assets/project6.webp";
 
 
 
@@ -35,7 +37,7 @@ export const PROJECTS = [
   },
   {
     id: 2,
-    title: "Mobile Showroom Management System",
+    title: "Showroom Management System",
     description:
       "A system to manage mobile showroom inventory, sales, and customer data using OOP principles for streamlined operations",
     imgSrc: project2,
@@ -46,7 +48,7 @@ export const PROJECTS = [
     title: "Portfolio Website ",
     description:
       "A personal portfolio website to showcase projects and skills. ",
-    imgSrc: project3,
+    imgSrc: project5,
     link: "https://github.com/mank25/portfolio",
   },
   {

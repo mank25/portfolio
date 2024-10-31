@@ -10,7 +10,7 @@ const Projects = () => {
                     <div className="relative mb-4 overflow-hidden rounded-lg bg-white shadow-lg">
                         <img src={project.imgSrc} alt={project.title} className="h-auto w-full obeject-cover" />
                         <div className="absolute bottom-0 left-0 right-0 m-8 p-8 text-white backdrop-blur-md">
-                            <h3 className="text-3xl ">{project.title}</h3>
+                            <h3 className="text-3xl justify-center align-center">{project.title}</h3>
                             <p className="max-w-xs text-lg">{project.description}</p>
                         </div>
                     </div>
