@@ -19,13 +19,13 @@
       {
         "title": "ExpressJS",
         "path": "true",
-        "img": "myExpress.png",
+        "img": "/portfolio/myExpress.png",
         "color": "#84CC2B"
       },
       {
         "title": "MongoDB",
         "path": "true",
-        "img": "myMongo.png",
+        "img": "/portfolio/myMongo.png",
         "color": "#84CC2B"
       }
     ],

@@ -2,9 +2,9 @@
   "profile": {
     "name": "Mayank Sharma a",
     "title": "Full Stack Developer",
-    "image": "/myPicture.jpg",
-    "logo": "/S.png",
-    "resumeUrl": "/resume.pdf",
+    "image": "/portfolio/myPicture.jpg",
+    "logo": "/portfolio/S.png",
+    "resumeUrl": "/portfolio/resume.pdf",
     "bio": "Software engineer focused on building reliable web systems, scalable data pipelines, and efficient backend services. Experienced in building REST APIs, ETL pipelines, full-stack applications, and optimizing backend performance. Passionate about clean architecture, maintainable code, and production-ready engineering."
   },
 
@@ -59,11 +59,11 @@
       ],
       "technologies": [
         { "title": "ReactJS", "img": "fa-react", "color": "#00ffff" },
-        { "title": "NestJS", "path": "true", "img": "myNest.png", "color": "#E0234E" },
-        { "title": "FastAPI", "path": "true", "img": "myAPI.png", "color": "#22C55E" },
-        { "title": "Django", "path": "true", "img": "myDjango.png", "color": "#0C4A34" },
-        { "title": "MySQL", "path": "true", "img": "mySql.png", "color": "#F7DF17" },
-        { "title": "TypeScript", "path": "true", "img": "myTypescript.png", "color": "#007ACC" },
+        { "title": "NestJS", "path": "true", "img": "/portfolio/myNest.png", "color": "#E0234E" },
+        { "title": "FastAPI", "path": "true", "img": "/portfolio/myAPI.png", "color": "#22C55E" },
+        { "title": "Django", "path": "true", "img": "/portfolio/myDjango.png", "color": "#0C4A34" },
+        { "title": "MySQL", "path": "true", "img": "/portfolio/mySql.png", "color": "#F7DF17" },
+        { "title": "TypeScript", "path": "true", "img": "/portfolio/myTypescript.png", "color": "#007ACC" },
         { "title": "JavaScript", "img": "fa-js", "color": "#F7DF17" }
       ]
     },
@@ -82,7 +82,7 @@
       ],
       "technologies": [
         { "title": "Python", "img": "fa-python", "color": "#3776AB" },
-        { "title": "MySQL", "path": "true", "img": "mySql.png", "color": "#F7DF17" },
+        { "title": "MySQL", "path": "true", "img": "/portfolio/mySql.png", "color": "#F7DF17" },
         { "title": "SQLAlchemy",  "img": "fa-python", "color": "#6B7280" }
       ]
     },
@@ -100,7 +100,7 @@
       ],
       "technologies": [
         { "title": "Python", "img": "fa-python", "color": "#3776AB" },
-        { "title": "REST API", "path": "true", "img": "myAPI.png", "color": "#6B7280" }
+        { "title": "REST API", "path": "true", "img": "/portfolio/myAPI.png", "color": "#6B7280" }
       ]
     }
   ],
@@ -115,8 +115,8 @@
       "techstack": [
         { "title": "ReactJS", "img": "fa-react", "color": "#00ffff" },
         { "title": "NodeJS", "img": "fa-node-js", "color": "#84CC2B" },
-        { "title": "MongoDB", "path": "true", "img": "myMongo.png", "color": "#84CC2B" },
-        { "title": "Tailwind CSS", "path": "true", "img": "myTailwind.png", "color": "#38BDF8" }
+        { "title": "MongoDB", "path": "true", "img": "/portfolio/myMongo.png", "color": "#84CC2B" },
+        { "title": "Tailwind CSS", "path": "true", "img": "/portfolio/myTailwind.png", "color": "#38BDF8" }
       ],
       "tags": ["fs"]
     },
@@ -129,8 +129,8 @@
       "techstack": [
         { "title": "ReactJS", "img": "fa-react", "color": "#00ffff" },
         { "title": "NodeJS", "img": "fa-node-js", "color": "#84CC2B" },
-        { "title": "ExpressJS", "path": "true", "img": "myExpress.png", "color": "#84CC2B" },
-        { "title": "MongoDB", "path": "true", "img": "myMongo.png", "color": "#84CC2B" }
+        { "title": "ExpressJS", "path": "true", "img": "/portfolio/myExpress.png", "color": "#84CC2B" },
+        { "title": "MongoDB", "path": "true", "img": "/portfolio/myMongo.png", "color": "#84CC2B" }
       ],
       "tags": ["fs"]
     },
@@ -142,7 +142,7 @@
       "live": "https://mank25.github.io/portfolio",
       "techstack": [
         { "title": "ReactJS", "img": "fa-react", "color": "#00ffff" },
-        { "title": "Tailwind CSS", "path": "true", "img": "myTailwind.png", "color": "#38BDF8" },
+        { "title": "Tailwind CSS", "path": "true", "img": "/portfolio/myTailwind.png", "color": "#38BDF8" },
         { "title": "JavaScript", "img": "fa-js", "color": "#F7DF17" }
       ],
       "tags": ["f"]
@@ -154,7 +154,7 @@
       "github": "https://github.com/mank25/mobile-showroom-management-system",
       "techstack": [
         { "title": "Python", "img": "fa-python", "color": "#3776AB" },
-        { "title": "MySQL", "path": "true", "img": "mySql.png", "color": "#F7DF17" }
+        { "title": "MySQL", "path": "true", "img": "/portfolio/mySql.png", "color": "#F7DF17" }
       ],
       "tags": ["b"]
     }
