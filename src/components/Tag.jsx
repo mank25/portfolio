@@ -7,7 +7,7 @@ const Tag = ({ props }) => {
             <span>
                 {props.path ? (
                     <img
-                        src={`/${props.img}`}
+                        src={props.img}
                         alt={props.title}
                         className={props.class || 'w-4 h-4 inline'}
                     />
