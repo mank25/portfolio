@@ -1,0 +1,89 @@
+[
+  {
+    "title": "ReactJS",
+    "img": "fa-react",
+    "color": "#00ffff"
+  },
+  {
+    "title": "NestJS",
+    "path": "true",
+    "img": "myNest.png",
+    "color": "#00ffff"
+  },
+  {
+    "title": "NodeJS",
+    "img": "fa-node-js",
+    "color": "#84CC2B"
+  },
+  {
+    "title": "ExpressJS",
+    "path": "true",
+    "img": "myExpress.png",
+    "color": "#84CC2B"
+  },
+  {
+    "title": "MongoDB",
+    "path": "true",
+    "img": "myMongo.png",
+    "color": "#84CC2B"
+  },
+  {
+    "title": "MySQL",
+    "path": "true",
+    "img": "mySql.png",
+    "color": "#F7DF17"
+  },
+  {
+    "title": "Typescript",
+    "path": "true",
+    "img": "myTypescript.png",
+    "color": "#007ACC"
+  },
+  {
+    "title": "Javascript",
+    "img": "fa-js",
+    "color": "#F7DF17"
+  },
+  {
+    "title": "Tailwind CSS",
+    "path": "true",
+    "img": "myTailwind.png",
+    "color": "#38BDF8"
+  },
+  {
+    "title": "HTML",
+    "img": "fa-html5",
+    "color": "#E34C26"
+  },
+  {
+    "title": "CSS",
+    "img": "fa-css3-alt",
+    "color": "#264DE4"
+  },
+  {
+    "title": "Docker",
+    "path": "true",
+    "img": "myDocker.png",
+    "color": "#0db7ed"
+  },
+  {
+    "title": "Git",
+    "img": "fa-code-merge",
+    "color": "#F05033"
+  },
+  {
+    "title": "Data Structures & Algorithms",
+    "img": "",
+    "color": "#F7DF17"
+  },
+  {
+    "title": "OOP",
+    "img": "",
+    "color": "#F7DF17"
+  },
+  {
+    "title": "DBMS",
+    "img": "",
+    "color": "#F7DF17"
+  }
+]

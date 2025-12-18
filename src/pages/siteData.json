@@ -1,0 +1,172 @@
+{
+  "profile": {
+    "name": "Mayank Sharma a",
+    "title": "Full Stack Developer",
+    "image": "/myPicture.jpg",
+    "logo": "/S.png",
+    "resumeUrl": "/resume.pdf",
+    "bio": "Software engineer focused on building reliable web systems, scalable data pipelines, and efficient backend services. Experienced in building REST APIs, ETL pipelines, full-stack applications, and optimizing backend performance. Passionate about clean architecture, maintainable code, and production-ready engineering."
+  },
+
+  "navigation": [
+    { "label": "About", "href": "#about" },
+    { "label": "Experience", "href": "#experience" },
+    { "label": "Projects", "href": "#projects" },
+    { "label": "Contact", "href": "#contact" }
+  ],
+
+  "socials": [
+    {
+      "platform": "github",
+      "icon": "fa-brands fa-github",
+      "url": "https://github.com/mank25",
+      "label": "GitHub"
+    },
+    {
+      "platform": "linkedin",
+      "icon": "fa-brands fa-linkedin",
+      "url": "https://www.linkedin.com/in/mayank-sharma-4b330b229/",
+      "label": "LinkedIn"
+    },
+    {
+      "platform": "twitter",
+      "icon": "fa-brands fa-twitter",
+      "url": "https://twitter.com/",
+      "label": "Twitter"
+    },
+    {
+      "platform": "email",
+      "icon": "fa-solid fa-envelope",
+      "url": "mailto:workwithmayanksharma@gmail.com",
+      "label": "Email"
+    }
+  ],
+
+  "experience": [
+    {
+      "id": "exp-1",
+      "position": "Software Engineer Intern",
+      "company": "Squareboat",
+      "location": "Gurugram, Haryana",
+      "startDate": "2025-06",
+      "endDate": "Present",
+      "description": "Worked across full-stack systems including REST APIs, microservices, frontend interfaces, and deployment pipelines.",
+      "highlights": [
+        "Built and optimized production REST APIs using NestJS, Django, React and MySQL.",
+        "Developed full-stack features for Squareboat Website, ATS Portal, and Harbor services.",
+        "Led development of an internal Job Portal (FastAPI + React) including authentication and hiring workflows.",
+        "Implemented CI/CD deployment and improved backend reliability with logging and error handling."
+      ],
+      "technologies": [
+        { "title": "ReactJS", "img": "fa-react", "color": "#00ffff" },
+        { "title": "NestJS", "path": "true", "img": "myNest.png", "color": "#E0234E" },
+        { "title": "FastAPI", "path": "true", "img": "myAPI.png", "color": "#22C55E" },
+        { "title": "Django", "path": "true", "img": "myDjango.png", "color": "#0C4A34" },
+        { "title": "MySQL", "path": "true", "img": "mySql.png", "color": "#F7DF17" },
+        { "title": "TypeScript", "path": "true", "img": "myTypescript.png", "color": "#007ACC" },
+        { "title": "JavaScript", "img": "fa-js", "color": "#F7DF17" }
+      ]
+    },
+    {
+      "id": "exp-2",
+      "position": "Software Engineer Intern",
+      "company": "Infomenja Services",
+      "location": "Remote",
+      "startDate": "2024-01",
+      "endDate": "2024-03",
+      "description": "Worked on backend automation and ETL pipelines for enterprise data workflows.",
+      "highlights": [
+        "Automated Excel/CSV → MySQL ETL pipelines using Python, pandas, and SQLAlchemy.",
+        "Implemented schema mapping, cleaning, deduplication, and batch inserts.",
+        "Improved migration reliability with structured logging and validation reporting."
+      ],
+      "technologies": [
+        { "title": "Python", "img": "fa-python", "color": "#3776AB" },
+        { "title": "MySQL", "path": "true", "img": "mySql.png", "color": "#F7DF17" },
+        { "title": "SQLAlchemy",  "img": "fa-python", "color": "#6B7280" }
+      ]
+    },
+    {
+      "id": "exp-3",
+      "position": "Software Engineer Intern",
+      "company": "Tresor Systems",
+      "location": "Noida",
+      "startDate": "2023-07",
+      "endDate": "2023-08",
+      "description": "Contributed to backend API development for enterprise HRM systems.",
+      "highlights": [
+        "Developed secure file-upload APIs and metadata storage modules using Python.",
+        "Enhanced backend reliability and workflows in coordination with HR teams."
+      ],
+      "technologies": [
+        { "title": "Python", "img": "fa-python", "color": "#3776AB" },
+        { "title": "REST API", "path": "true", "img": "myAPI.png", "color": "#6B7280" }
+      ]
+    }
+  ],
+
+  "projects": [
+    {
+      "img": "https://i.ibb.co/BK58pPY/pika-1711695045385-1x.png",
+      "title": "Portfolio Maker",
+      "description": "Full-featured portfolio builder with MERN stack. Includes dynamic templates, live website publishing, and customizable design options.",
+      "github": "https://github.com/mank25/portfolio-maker",
+      "live": "",
+      "techstack": [
+        { "title": "ReactJS", "img": "fa-react", "color": "#00ffff" },
+        { "title": "NodeJS", "img": "fa-node-js", "color": "#84CC2B" },
+        { "title": "MongoDB", "path": "true", "img": "myMongo.png", "color": "#84CC2B" },
+        { "title": "Tailwind CSS", "path": "true", "img": "myTailwind.png", "color": "#38BDF8" }
+      ],
+      "tags": ["fs"]
+    },
+    {
+      "img": "https://i.ibb.co/BK58pPY/pika-1711695045385-1x.png",
+      "title": "Full Stack Blog Application",
+      "description": "Complete blog platform with post creation, editing, deletion, and comments functionality built with MERN stack.",
+      "github": "https://github.com/mank25/fullstack-blog",
+      "live": "",
+      "techstack": [
+        { "title": "ReactJS", "img": "fa-react", "color": "#00ffff" },
+        { "title": "NodeJS", "img": "fa-node-js", "color": "#84CC2B" },
+        { "title": "ExpressJS", "path": "true", "img": "myExpress.png", "color": "#84CC2B" },
+        { "title": "MongoDB", "path": "true", "img": "myMongo.png", "color": "#84CC2B" }
+      ],
+      "tags": ["fs"]
+    },
+    {
+      "img": "https://i.ibb.co/BK58pPY/pika-1711695045385-1x.png",
+      "title": "Personal Portfolio Website",
+      "description": "Responsive portfolio website built with React.js with optimized performance, smooth navigation, and modern UI design.",
+      "github": "https://github.com/mank25/portfolio",
+      "live": "https://mank25.github.io/portfolio",
+      "techstack": [
+        { "title": "ReactJS", "img": "fa-react", "color": "#00ffff" },
+        { "title": "Tailwind CSS", "path": "true", "img": "myTailwind.png", "color": "#38BDF8" },
+        { "title": "JavaScript", "img": "fa-js", "color": "#F7DF17" }
+      ],
+      "tags": ["f"]
+    },
+    {
+      "img": "https://i.ibb.co/BK58pPY/pika-1711695045385-1x.png",
+      "title": "Mobile Showroom Management System",
+      "description": "Python + MySQL CLI-based inventory and sales management system with comprehensive reporting and analytics capabilities.",
+      "github": "https://github.com/mank25/mobile-showroom-management-system",
+      "techstack": [
+        { "title": "Python", "img": "fa-python", "color": "#3776AB" },
+        { "title": "MySQL", "path": "true", "img": "mySql.png", "color": "#F7DF17" }
+      ],
+      "tags": ["b"]
+    }
+  ],
+
+  "contact": {
+    "heading": "Contact",
+    "copyrightText": "©",
+    "formFields": [
+      { "name": "name", "type": "text", "placeholder": "Enter Name", "required": true },
+      { "name": "email", "type": "email", "placeholder": "Enter Email", "required": true },
+      { "name": "message", "type": "textarea", "placeholder": "Enter Message...", "rows": 4, "required": true }
+    ]
+  }
+}

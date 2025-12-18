@@ -1,0 +1,402 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Minimalist smooth animations */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes floatImage {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+/* Section animations */
+section {
+  animation: slideInUp 0.6s ease-out;
+}
+
+/* Minimalist Navbar */
+.navbar-enhanced {
+  animation: slideInDown 0.5s ease-out;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid #e5e7eb;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.nav-link {
+  position: relative;
+  transition: color 0.3s ease;
+  color: #6b7280;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: #1f2937;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #1f2937;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Profile section */
+.profile-image {
+  animation: floatImage 3s ease-in-out infinite;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
+  transition: all 0.3s ease;
+}
+
+.profile-image:hover {
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  transform: scale(1.01);
+}
+
+.profile-heading {
+  color: #1f2937;
+  font-weight: 700;
+  font-size: 2.25rem;
+  line-height: 1.2;
+}
+
+.bio-text {
+  animation: slideInUp 0.8s ease-out 0.1s backwards;
+  color: #4b5563;
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+/* Button - minimalist */
+.btn-resume {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  animation: slideInUp 1s ease-out 0.2s backwards;
+  background: #1f2937;
+  border: 1px solid #1f2937;
+  color: #ffffff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.375rem;
+  font-weight: 500;
+}
+
+.btn-resume:hover {
+  background: #111827;
+  border-color: #111827;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Tech section */
+.tech-section {
+  animation: fadeIn 0.8s ease-out 0.3s backwards;
+}
+
+.tech-heading {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+/* Experience cards */
+.experience-card {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  animation: slideInUp 0.6s ease-out backwards;
+}
+
+.experience-card:hover {
+  border-color: #d1d5db;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transform: translateY(-4px);
+}
+
+.experience-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.experience-highlight {
+  color: #4b5563;
+  transition: all 0.2s ease;
+  padding-left: 1.25rem;
+}
+
+.experience-highlight:hover {
+  color: #1f2937;
+  transform: translateX(4px);
+}
+
+/* Project cards */
+.project-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  animation: slideInUp 0.6s ease-out backwards;
+}
+
+.project-card:hover {
+  border-color: #d1d5db;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+  transform: translateY(-6px);
+}
+
+.project-image {
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.project-card:hover .project-image {
+  transform: scale(1.03);
+}
+
+.project-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.project-description {
+  color: #4b5563;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* Button primary */
+.btn-primary {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  color: #000000;
+  padding: 0.625rem 1rem;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.btn-primary:hover {
+  background: #1f2937;
+  border-color: #1f2937;
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Tags */
+.tag-badge {
+  position: relative;
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  border-radius: 9999px;
+  padding: 0.375rem 0.75rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.tag-badge:hover {
+  background: #e5e7eb;
+  border-color: #d1d5db;
+  transform: translateY(-1px);
+}
+
+/* Form inputs */
+.form-input,
+.form-textarea {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  color: #1f2937;
+  padding: 0.75rem;
+  border-radius: 0.375rem;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: #9ca3af;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: #1f2937;
+  box-shadow: 0 0 0 3px rgba(31, 41, 55, 0.1);
+}
+
+/* Contact heading */
+.contact-heading {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+/* Footer */
+.footer {
+  border-top: 1px solid #e5e7eb;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  color: #6b7280;
+  transition: all 0.3s ease;
+}
+
+.footer:hover {
+  color: #1f2937;
+}
+
+/* Social icons */
+.social-icon {
+  transition: all 0.3s ease;
+  color: #6b7280;
+  font-size: 1.25rem;
+}
+
+.social-icon:hover {
+  color: #1f2937;
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .profile-heading {
+    font-size: 1.5rem;
+    line-height: 1.3;
+  }
+
+  .tech-heading {
+    font-size: 1.25rem;
+  }
+
+  .nav-link::after {
+    display: none;
+  }
+
+  .nav-link:hover {
+    background-color: #f3f4f6;
+    border-radius: 0.25rem;
+    padding: 0 0.25rem;
+  }
+
+  .experience-card {
+    padding: 1rem;
+  }
+
+  .project-card {
+    padding: 0;
+  }
+
+  .form-input,
+  .form-textarea {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-heading {
+    font-size: 1.375rem;
+  }
+
+  .btn-resume {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .project-card {
+    margin-bottom: 1rem;
+  }
+}
+
+
+/* Loading skeleton animation */
+@keyframes loading {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+/* Scroll animations */
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

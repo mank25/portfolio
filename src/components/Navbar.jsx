@@ -1,67 +1,71 @@
-import { useEffect } from "react"
-import { useState } from "react"
-import { FaTimes,FaBars } from 'react-icons/fa'
-import { LINKS } from "../constants"
-import { AnimatePresence, motion} from "framer-motion"
+import React, { useState, useEffect } from "react";
+import siteData from "../pages/siteData.json";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 
 const Navbar = () => {
-    const[isOpen,setIsOpen]=useState(false)
-    const togglemenu = () =>{
-        setIsOpen(!isOpen)
-    }
-    useEffect(()=>{
-        if(isOpen){
-            document.body.style.overflow="hidden";
-        } else{
-            document.body.style.overflow="auto";
-        }
-    },[isOpen])
+  const { navigation } = siteData;
+  const [menuOpen, setMenuOpen] = useState(false);
 
-    const containerVariants = {
-        hidden:{opacity:0,y:"-100%"},
-        visible:{opacity:1,y:0,
-            transition:{
-                staggerChildren:0.1
-            }
-        }
-    }
-
-    const linkVariants={
-        hidden:{opacity:0, y: -50},
-        visible:{opacity:1,y:0} 
-    }
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) setMenuOpen(false); // lg breakpoint
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
-      <>
-      <nav className="fixed right-0 top-0 z-30 p-4">
-        <button onClick={togglemenu} className="rounded-md p-2">
-            {isOpen ?(
-                <FaTimes className="h-6 w-6"/>
-            ):(
-                <FaBars className="h-6 w-6"/>
-            )}
-        </button>
-      </nav>
-      <AnimatePresence>
-      {isOpen && (
-        <motion.div initial="hidden" animate="visible" exit="hidden" variants={containerVariants}  className="fixed inset-0 z-20 flex flex-col items-center justify-center bg-black text-white">
-            <ul className="space-y-6 text-3xl">
-                {LINKS.map((link)=>(
-                    <motion.li
-                        variants={linkVariants} 
-                        key={link.id}>
-                        <a href={`#${link.id}`} onClick={togglemenu} className="text-5xl font-semibold uppercase tracking-wide hover:text-lime-300 lg:text-9xl">
-                            {link.name}
-                        </a>
-                    </motion.li>
-                ))}
-            </ul>
-        </motion.div>
-      )}
-      </AnimatePresence>
-    </>
-  )
-}
+    <nav className="fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-200 shadow-sm">
+      <div className="flex items-center justify-between py-3 px-5 lg:px-[20%]">
+        
+        {/* Logo */}
+        <div className="font-extrabold text-xl text-gray-800 select-none">
+          Mayank Sharma
+        </div>
 
-export default Navbar
-Navbar
+        {/* Desktop Navigation */}
+        <div className="hidden lg:flex gap-10 text-gray-600 font-semibold">
+          {navigation.map((item, index) => (
+            <a
+              key={index}
+              href={item.href}
+              className="relative group transition-all duration-300"
+            >
+              {item.label}
+              <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-gray-900 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+          ))}
+        </div>
+
+        {/* Mobile Menu Button */}
+        <button
+          className="lg:hidden text-gray-700 text-2xl"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          <FontAwesomeIcon icon={menuOpen ? faXmark : faBars} />
+        </button>
+      </div>
+
+      {/* Mobile Dropdown */}
+      {menuOpen && (
+        <div className="lg:hidden bg-white/95 backdrop-blur-lg border-b border-gray-200 shadow-lg animate-slideDown">
+          <div className="flex flex-col gap-4 px-6 py-4 text-gray-700 font-semibold">
+            {navigation.map((item, index) => (
+              <a
+                key={index}
+                href={item.href}
+                onClick={() => setMenuOpen(false)}
+                className="py-2 border-b border-gray-200 last:border-none"
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+    </nav>
+  );
+};
+
+export default Navbar;
