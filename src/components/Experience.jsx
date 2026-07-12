@@ -1,66 +1,55 @@
-import Tag from "./Tag";
 import siteData from "../pages/siteData.json";
 
 const Experience = () => {
   const { experience } = siteData;
 
   return (
-    <section
-      className="border-t border-gray-200 pt-12 md:pt-16"
-      id="experience"
-      aria-labelledby="experience-heading"
-    >
-      <h2 id="experience-heading" className="text-gray-900 text-2xl md:text-3xl font-semibold mb-8">
-        Experience
-      </h2>
+    <section id="experience">
+      <p className="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-2">
+        Career
+      </p>
+      <h2 className="text-2xl font-bold text-slate-900 mb-10">Work Experience</h2>
 
-      {experience.map((exp, index) => (
-        <article 
-          key={exp.id} 
-          className="experience-card p-6 md:p-8 rounded-lg mb-6 md:mb-8 border border-gray-200 bg-gray-50"
-          style={{ animationDelay: `${index * 0.1}s` }}
-        >
-          <header className="flex flex-col md:flex-row md:justify-between md:items-start gap-3 mb-6">
-            <div className="flex-1">
-              <div className="experience-title text-gray-900 text-sm md:text-base">
-                {exp.position}{" "}
-                <span className="text-gray-600"> at {exp.company}</span>
+      <div className="relative space-y-5">
+        {/* Vertical timeline line */}
+        <div className="absolute left-[7px] top-3 bottom-3 w-px bg-slate-200 hidden sm:block"></div>
+
+        {experience.map((exp) => (
+          <div key={exp.id} className="relative sm:pl-8">
+            {/* Timeline dot */}
+            <div className="absolute left-0 top-5 w-3.5 h-3.5 rounded-full border-2 border-slate-300 bg-white hidden sm:block"></div>
+
+            <div className="bg-white border border-slate-200 rounded-xl p-5 hover:border-slate-300 hover:shadow-sm transition-all duration-200">
+              {/* Header */}
+              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-4">
+                <div>
+                  <h3 className="font-semibold text-slate-900 text-base">{exp.position}</h3>
+                  <p className="text-sm text-slate-500 mt-0.5">
+                    {exp.company}
+                    {exp.location && (
+                      <span className="text-slate-400"> · {exp.location}</span>
+                    )}
+                  </p>
+                </div>
+                <span className="inline-flex items-center px-2.5 py-1 rounded-md bg-slate-100 text-xs font-medium text-slate-600 whitespace-nowrap shrink-0">
+                  {exp.startDate} – {exp.endDate}
+                </span>
               </div>
-              <div className="text-xs md:text-sm text-gray-500 mt-2">{exp.location}</div>
-            </div>
 
-            <div className="text-xs md:text-sm text-gray-600 px-3 py-1.5 rounded bg-gray-100 whitespace-nowrap self-start md:self-auto">
-              <time dateTime={exp.startDate}>{exp.startDate}</time> – {exp.endDate}
-            </div>
-          </header>
-
-          <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4 md:gap-6">
-            <div className="md:flex-1">
-              <p className="text-gray-700 text-sm md:text-base mb-4 leading-relaxed">
-                {exp.description}
-              </p>
-
-              <ul className="space-y-2 md:space-y-3">
-                {exp.highlights.map((highlight, idx) => (
-                  <li key={idx} className="experience-highlight text-gray-600 text-sm md:text-base flex items-start">
-                    <span className="text-gray-400 mr-3 mt-0.5 font-bold">▸</span>
-                    <span>{highlight}</span>
+              {/* Highlights */}
+              <ul className="space-y-2 mb-5">
+                {exp.highlights.map((h, idx) => (
+                  <li key={idx} className="flex items-start gap-2.5 text-sm text-slate-600">
+                    <span className="mt-2 w-1 h-1 rounded-full bg-slate-400 shrink-0"></span>
+                    {h}
                   </li>
                 ))}
               </ul>
-            </div>
 
-            <div className="md:w-1/3">
-              <div className="text-xs md:text-sm text-gray-600 mb-3 font-semibold">Technologies</div>
-              <div className="flex flex-wrap items-center gap-2">
-                {exp.technologies.map((tech, idx) => (
-                  <Tag key={idx} props={tech} />
-                ))}
-              </div>
             </div>
           </div>
-        </article>
-      ))}
+        ))}
+      </div>
     </section>
   );
 };

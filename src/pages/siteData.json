@@ -1,11 +1,11 @@
 {
   "profile": {
-    "name": "Mayank Sharma a",
-    "title": "Full Stack Developer",
+    "name": "Mayank Sharma",
+    "title": "Backend Software Engineer",
     "image": "/portfolio/myPicture.jpg",
     "logo": "/portfolio/S.png",
     "resumeUrl": "/portfolio/resume.pdf",
-    "bio": "Software engineer focused on building reliable web systems, scalable data pipelines, and efficient backend services. Experienced in building REST APIs, ETL pipelines, full-stack applications, and optimizing backend performance. Passionate about clean architecture, maintainable code, and production-ready engineering."
+    "bio": "Backend Software Engineer working with Spring Boot, Python, and SQL, currently building a live AI-powered blogging platform end-to-end. Hands-on experience with REST APIs, NestJS, and applied AI features such as RAG, embeddings, and semantic search."
   },
 
   "navigation": [
@@ -25,14 +25,8 @@
     {
       "platform": "linkedin",
       "icon": "fa-brands fa-linkedin",
-      "url": "https://www.linkedin.com/in/mayank-sharma-4b330b229/",
+      "url": "https://www.linkedin.com/in/mayank-sharma025/",
       "label": "LinkedIn"
-    },
-    {
-      "platform": "twitter",
-      "icon": "fa-brands fa-twitter",
-      "url": "https://twitter.com/",
-      "label": "Twitter"
     },
     {
       "platform": "email",
@@ -45,45 +39,44 @@
   "experience": [
     {
       "id": "exp-1",
-      "position": "Software Engineer Intern",
-      "company": "Squareboat",
-      "location": "Gurugram, Haryana",
-      "startDate": "2025-06",
+      "position": "Software Engineer",
+      "company": "Infomenja Services",
+      "location": "Remote",
+      "startDate": "Jan 2026",
       "endDate": "Present",
-      "description": "Worked across full-stack systems including REST APIs, microservices, frontend interfaces, and deployment pipelines.",
+      "description": "Building Blookmark, a live AI-powered blogging platform, end-to-end with Spring Boot, React, MySQL, and Redis.",
       "highlights": [
-        "Built and optimized production REST APIs using NestJS, Django, React and MySQL.",
-        "Developed full-stack features for Squareboat Website, ATS Portal, and Harbor services.",
-        "Led development of an internal Job Portal (FastAPI + React) including authentication and hiring workflows.",
-        "Implemented CI/CD deployment and improved backend reliability with logging and error handling."
+        "Build and maintain Blookmark, a live AI-powered blogging platform, using Spring Boot, React, MySQL, and Redis — reaching 700+ users and 28K+ page views in 2026 with a 5m+ average engagement time, driven by organic search and social referrals.",
+        "Engineered AI-assisted content generation and semantic search with vector embeddings, plus a hierarchical CMS, JWT authentication with role-based access control, SEO optimization, and an analytics/admin dashboard.",
+        "Automated Excel-to-MySQL data ingestion with Python pipelines that clean, validate, and load datasets, replacing manual data entry."
       ],
       "technologies": [
-        { "title": "ReactJS", "img": "fa-react", "color": "#00ffff" },
-        { "title": "NestJS", "path": "true", "img": "/portfolio/myNest.png", "color": "#E0234E" },
-        { "title": "FastAPI", "path": "true", "img": "/portfolio/myAPI.png", "color": "#22C55E" },
-        { "title": "Django", "path": "true", "img": "/portfolio/myDjango.png", "color": "#0C4A34" },
-        { "title": "MySQL", "path": "true", "img": "/portfolio/mySql.png", "color": "#F7DF17" },
-        { "title": "TypeScript", "path": "true", "img": "/portfolio/myTypescript.png", "color": "#007ACC" },
-        { "title": "JavaScript", "img": "fa-js", "color": "#F7DF17" }
+        { "title": "Spring Boot", "img": "fa-java", "color": "#6DB33F" },
+        { "title": "ReactJS", "img": "fa-react", "color": "#61DAFB" },
+        { "title": "MySQL", "path": "true", "img": "/portfolio/mySql.png", "color": "#00758F" },
+        { "title": "Redis", "img": "fa-database", "prefix": "fa-solid", "color": "#DC382D" },
+        { "title": "Python", "img": "fa-python", "color": "#3776AB" }
       ]
     },
     {
       "id": "exp-2",
       "position": "Software Engineer Intern",
-      "company": "Infomenja Services",
-      "location": "Remote",
-      "startDate": "2024-01",
-      "endDate": "2024-03",
-      "description": "Worked on backend automation and ETL pipelines for enterprise data workflows.",
+      "company": "Squareboat",
+      "location": "Gurugram, Haryana",
+      "startDate": "Jun 2025",
+      "endDate": "Dec 2025",
+      "description": "Built production REST APIs and contributed to ATS platform, Harbor video conferencing integration, and Squareboat CMS across full-stack systems.",
       "highlights": [
-        "Automated Excel/CSV → MySQL ETL pipelines using Python, pandas, and SQLAlchemy.",
-        "Implemented schema mapping, cleaning, deduplication, and batch inserts.",
-        "Improved migration reliability with structured logging and validation reporting."
+        "Delivered 15+ production REST APIs in NestJS, Django, and MySQL — reducing average API latency by 35% through query optimization and caching.",
+        "Contributed frontend and backend features to an Applicant Tracking System (ATS) processing 500+ applications monthly, and integrated the Harbor video conferencing platform for candidate screening.",
+        "Shipped enhancements and bug fixes to backend CMS features on Squareboat's live production platform."
       ],
       "technologies": [
-        { "title": "Python", "img": "fa-python", "color": "#3776AB" },
-        { "title": "MySQL", "path": "true", "img": "/portfolio/mySql.png", "color": "#F7DF17" },
-        { "title": "SQLAlchemy",  "img": "fa-python", "color": "#6B7280" }
+        { "title": "NestJS", "path": "true", "img": "/portfolio/myNest.png", "color": "#E0234E" },
+        { "title": "Django", "path": "true", "img": "/portfolio/myDjango.png", "color": "#0C4A34" },
+        { "title": "ReactJS", "img": "fa-react", "color": "#61DAFB" },
+        { "title": "MySQL", "path": "true", "img": "/portfolio/mySql.png", "color": "#00758F" },
+        { "title": "TypeScript", "path": "true", "img": "/portfolio/myTypescript.png", "color": "#007ACC" }
       ]
     },
     {
@@ -91,82 +84,122 @@
       "position": "Software Engineer Intern",
       "company": "Tresor Systems",
       "location": "Okhla, Delhi",
-      "startDate": "2023-07",
-      "endDate": "2023-08",
-      "description": "Contributed to backend API development for enterprise HRM systems.",
+      "startDate": "Jul 2023",
+      "endDate": "Aug 2023",
+      "description": "Implemented production features for an employee onboarding portal with secure document uploads.",
       "highlights": [
-        "Developed secure file-upload APIs and metadata storage modules using Python.",
-        "Enhanced backend reliability and workflows in coordination with HR teams."
+        "Implemented secure document-upload features for an employee onboarding portal used by the HR team, streamlining onboarding for new hires.",
+        "Improved HR efficiency by centralizing employee records and digitizing document collection for 100+ onboarding cases, reducing manual paperwork."
       ],
       "technologies": [
         { "title": "Python", "img": "fa-python", "color": "#3776AB" },
-        { "title": "REST API", "path": "true", "img": "/portfolio/myAPI.png", "color": "#6B7280" }
+        { "title": "REST APIs", "path": "true", "img": "/portfolio/myAPI.png", "color": "#6B7280" }
       ]
     }
   ],
 
   "projects": [
     {
-      "img": "https://i.ibb.co/BK58pPY/pika-1711695045385-1x.png",
+      "title": "Blookmark — AI-Powered Blogging Platform",
+      "description": "Live AI-powered blogging platform built with Spring Boot, React, MySQL, and Redis — 700+ users and 28K+ page views in 2026 with 5m+ average engagement. Features a hierarchical CMS, AI-assisted content generation, semantic search with vector embeddings, JWT auth, role-based access control, SEO optimization, analytics, and an admin dashboard.",
+      "github": "",
+      "live": "https://www.blookmark.com",
+      "techstack": [
+        { "title": "Spring Boot", "img": "fa-java", "color": "#6DB33F" },
+        { "title": "ReactJS", "img": "fa-react", "color": "#61DAFB" },
+        { "title": "MySQL", "path": "true", "img": "/portfolio/mySql.png", "color": "#00758F" },
+        { "title": "Redis", "img": "fa-database", "prefix": "fa-solid", "color": "#DC382D" }
+      ],
+      "tags": ["fs", "ai"]
+    },
+    {
+      "title": "Full Stack Job Portal",
+      "description": "Full-stack job portal built with FastAPI, React, MySQL, Redis, and Celery. Features JWT authentication, role-based access control, job application workflows, background task processing, and database optimizations.",
+      "github": "https://github.com/mank25/job-portal",
+      "live": "https://youtu.be/anAhl9tIuvM",
+      "techstack": [
+        { "title": "FastAPI", "path": "true", "img": "/portfolio/myAPI.png", "color": "#22C55E" },
+        { "title": "ReactJS", "img": "fa-react", "color": "#61DAFB" },
+        { "title": "MySQL", "path": "true", "img": "/portfolio/mySql.png", "color": "#00758F" },
+        { "title": "Python", "img": "fa-python", "color": "#3776AB" },
+        { "title": "Docker", "img": "fa-docker", "color": "#0db7ed" }
+      ],
+      "tags": ["fs"]
+    },
+    {
+      "title": "Reddit Shorts Automation",
+      "description": "Hobby project: an end-to-end AI content pipeline that scrapes Reddit stories, generates TTS narration with Whisper-powered subtitles, assembles short-form videos, and auto-publishes to YouTube and Instagram on a GitHub Actions schedule. FastAPI backend with a React dashboard.",
+      "github": "",
+      "live": "",
+      "socials": [
+        { "icon": "fa-brands fa-youtube", "label": "YouTube", "url": "https://www.youtube.com/@reddit.did.whatyt" },
+        { "icon": "fa-brands fa-instagram", "label": "Instagram", "url": "https://www.instagram.com/reddit.did.what" }
+      ],
+      "techstack": [
+        { "title": "Python", "img": "fa-python", "color": "#3776AB" },
+        { "title": "FastAPI", "path": "true", "img": "/portfolio/myAPI.png", "color": "#22C55E" },
+        { "title": "ReactJS", "img": "fa-react", "color": "#61DAFB" },
+        { "title": "GitHub Actions", "img": "fa-github", "color": "#181717" }
+      ],
+      "tags": ["ai", "fs"]
+    },
+    {
+      "title": "RAG — Retrieval-Augmented Generation",
+      "description": "RAG system built with Python, LangChain, embeddings, and vector databases. Implements document chunking, semantic search, retrieval pipelines, and LLM-powered question-answering workflows to improve response accuracy.",
+      "github": "https://github.com/mank25/Rag",
+      "live": "https://youtu.be/a2Z6O9m9OPY",
+      "techstack": [
+        { "title": "Python", "img": "fa-python", "color": "#3776AB" }
+      ],
+      "tags": ["ai", "b"]
+    },
+    {
       "title": "Portfolio Maker",
-      "description": "Full-featured portfolio builder with MERN stack. Includes dynamic templates, live website publishing, and customizable design options.",
+      "status": "Building",
+      "description": "Full-featured portfolio builder using TypeScript and MERN stack with dynamic templates, live publishing, and customizable design options.",
       "github": "https://github.com/mank25/portfolio-maker",
       "live": "",
       "techstack": [
-        { "title": "ReactJS", "img": "fa-react", "color": "#00ffff" },
+        { "title": "TypeScript", "path": "true", "img": "/portfolio/myTypescript.png", "color": "#007ACC" },
+        { "title": "ReactJS", "img": "fa-react", "color": "#61DAFB" },
         { "title": "NodeJS", "img": "fa-node-js", "color": "#84CC2B" },
-        { "title": "MongoDB", "path": "true", "img": "/portfolio/myMongo.png", "color": "#84CC2B" },
-        { "title": "Tailwind CSS", "path": "true", "img": "/portfolio/myTailwind.png", "color": "#38BDF8" }
+        { "title": "MongoDB", "path": "true", "img": "/portfolio/myMongo.png", "color": "#47A248" }
       ],
       "tags": ["fs"]
     },
     {
-      "img": "https://i.ibb.co/BK58pPY/pika-1711695045385-1x.png",
-      "title": "Full Stack Blog Application",
-      "description": "Complete blog platform with post creation, editing, deletion, and comments functionality built with MERN stack.",
-      "github": "https://github.com/mank25/fullstack-blog",
-      "live": "",
+      "title": "Full Stack Blog",
+      "description": "Complete blog platform with post creation, editing, deletion, and comments. Built with the MERN stack with a live demo available.",
+      "github": "https://github.com/mank25/FullStack-Blog",
+      "live": "https://youtu.be/L7G2-UqfI88",
       "techstack": [
-        { "title": "ReactJS", "img": "fa-react", "color": "#00ffff" },
+        { "title": "ReactJS", "img": "fa-react", "color": "#61DAFB" },
         { "title": "NodeJS", "img": "fa-node-js", "color": "#84CC2B" },
-        { "title": "ExpressJS", "path": "true", "img": "/portfolio/myExpress.png", "color": "#84CC2B" },
-        { "title": "MongoDB", "path": "true", "img": "/portfolio/myMongo.png", "color": "#84CC2B" }
+        { "title": "ExpressJS", "path": "true", "img": "/portfolio/myExpress.png", "color": "#404040" },
+        { "title": "MongoDB", "path": "true", "img": "/portfolio/myMongo.png", "color": "#47A248" }
       ],
       "tags": ["fs"]
     },
     {
-      "img": "https://i.ibb.co/BK58pPY/pika-1711695045385-1x.png",
-      "title": "Personal Portfolio Website",
-      "description": "Responsive portfolio website built with React.js with optimized performance, smooth navigation, and modern UI design.",
-      "github": "https://github.com/mank25/portfolio",
-      "live": "https://mank25.github.io/portfolio",
-      "techstack": [
-        { "title": "ReactJS", "img": "fa-react", "color": "#00ffff" },
-        { "title": "Tailwind CSS", "path": "true", "img": "/portfolio/myTailwind.png", "color": "#38BDF8" },
-        { "title": "JavaScript", "img": "fa-js", "color": "#F7DF17" }
-      ],
-      "tags": ["f"]
-    },
-    {
-      "img": "https://i.ibb.co/BK58pPY/pika-1711695045385-1x.png",
-      "title": "Mobile Showroom Management System",
-      "description": "Python + MySQL CLI-based inventory and sales management system with comprehensive reporting and analytics capabilities.",
+      "title": "Showroom Management System",
+      "description": "Python + MySQL CLI-based inventory and sales management system with comprehensive reporting, analytics, and stock tracking.",
       "github": "https://github.com/mank25/mobile-showroom-management-system",
+      "live": "https://youtu.be/3qYwhNSWVCM",
       "techstack": [
         { "title": "Python", "img": "fa-python", "color": "#3776AB" },
-        { "title": "MySQL", "path": "true", "img": "/portfolio/mySql.png", "color": "#F7DF17" }
+        { "title": "MySQL", "path": "true", "img": "/portfolio/mySql.png", "color": "#00758F" }
       ],
       "tags": ["b"]
     }
   ],
 
   "contact": {
-    "heading": "Contact",
+    "heading": "Let's Connect",
     "copyrightText": "©",
     "formFields": [
-      { "name": "name", "type": "text", "placeholder": "Enter Name", "required": true },
-      { "name": "email", "type": "email", "placeholder": "Enter Email", "required": true },
-      { "name": "message", "type": "textarea", "placeholder": "Enter Message...", "rows": 4, "required": true }
+      { "name": "name", "type": "text", "placeholder": "Name", "required": true },
+      { "name": "email", "type": "email", "placeholder": "Email", "required": true },
+      { "name": "message", "type": "textarea", "placeholder": "Your message...", "rows": 5, "required": true }
     ]
   }
 }

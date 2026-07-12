@@ -1,66 +1,109 @@
 import React, { useState, useEffect } from "react";
 import siteData from "../pages/siteData.json";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 
 const Navbar = () => {
   const { navigation } = siteData;
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20);
     const handleResize = () => {
-      if (window.innerWidth >= 1024) setMenuOpen(false); // lg breakpoint
+      if (window.innerWidth >= 1024) setMenuOpen(false);
     };
+    window.addEventListener("scroll", handleScroll);
     window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-200 shadow-sm">
-      <div className="flex items-center justify-between py-3 px-5 lg:px-[20%]">
-        
-        {/* Logo */}
-        <div className="font-extrabold text-xl text-gray-800 select-none">
-          Mayank Sharma
-        </div>
+    <nav
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-200 ${
+        scrolled
+          ? "bg-white/95 backdrop-blur-sm border-b border-slate-200/80 shadow-sm"
+          : "bg-transparent"
+      }`}
+    >
+      <div className="max-w-6xl mx-auto px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          {/* Logo */}
+          <a href="#about" className="font-semibold text-slate-900 text-sm">
+            Mayank Sharma
+          </a>
 
-        {/* Desktop Navigation */}
-        <div className="hidden lg:flex gap-10 text-gray-600 font-semibold">
-          {navigation.map((item, index) => (
-            <a
-              key={index}
-              href={item.href}
-              className="relative group transition-all duration-300"
-            >
-              {item.label}
-              <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-gray-900 transition-all duration-300 group-hover:w-full"></span>
-            </a>
-          ))}
-        </div>
-
-        {/* Mobile Menu Button */}
-        <button
-          className="lg:hidden text-gray-700 text-2xl"
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          <FontAwesomeIcon icon={menuOpen ? faXmark : faBars} />
-        </button>
-      </div>
-
-      {/* Mobile Dropdown */}
-      {menuOpen && (
-        <div className="lg:hidden bg-white/95 backdrop-blur-lg border-b border-gray-200 shadow-lg animate-slideDown">
-          <div className="flex flex-col gap-4 px-6 py-4 text-gray-700 font-semibold">
-            {navigation.map((item, index) => (
+          {/* Desktop nav */}
+          <div className="hidden lg:flex items-center gap-8">
+            {navigation.map((item, i) => (
               <a
-                key={index}
+                key={i}
                 href={item.href}
-                onClick={() => setMenuOpen(false)}
-                className="py-2 border-b border-gray-200 last:border-none"
+                className="text-sm text-slate-500 hover:text-slate-900 transition-colors font-medium"
               >
                 {item.label}
               </a>
             ))}
+          </div>
+
+          <div className="hidden lg:block">
+            <a
+              href="#contact"
+              className="px-4 py-2 bg-slate-900 text-white text-sm font-medium rounded-lg hover:bg-slate-800 transition-colors"
+            >
+              Let&apos;s talk
+            </a>
+          </div>
+
+          {/* Mobile toggle */}
+          <button
+            className="lg:hidden flex flex-col gap-1.5 p-2 text-slate-600"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle menu"
+          >
+            <span
+              className={`block w-5 h-0.5 bg-current transition-all duration-200 ${
+                menuOpen ? "rotate-45 translate-y-2" : ""
+              }`}
+            ></span>
+            <span
+              className={`block w-5 h-0.5 bg-current transition-all duration-200 ${
+                menuOpen ? "opacity-0" : ""
+              }`}
+            ></span>
+            <span
+              className={`block w-5 h-0.5 bg-current transition-all duration-200 ${
+                menuOpen ? "-rotate-45 -translate-y-2" : ""
+              }`}
+            ></span>
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile menu */}
+      {menuOpen && (
+        <div className="lg:hidden bg-white border-b border-slate-200 shadow-sm">
+          <div className="max-w-6xl mx-auto px-6 py-4 space-y-1">
+            {navigation.map((item, i) => (
+              <a
+                key={i}
+                href={item.href}
+                onClick={() => setMenuOpen(false)}
+                className="block px-4 py-2.5 text-sm text-slate-700 hover:bg-slate-50 rounded-lg font-medium"
+              >
+                {item.label}
+              </a>
+            ))}
+            <div className="pt-2">
+              <a
+                href="#contact"
+                onClick={() => setMenuOpen(false)}
+                className="block text-center px-4 py-2.5 bg-slate-900 text-white text-sm font-medium rounded-lg hover:bg-slate-800 transition-colors"
+              >
+                Let&apos;s talk
+              </a>
+            </div>
           </div>
         </div>
       )}
