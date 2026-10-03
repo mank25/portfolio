@@ -5,7 +5,7 @@
     "image": "/portfolio/myPicture.jpg",
     "logo": "/portfolio/S.png",
     "resumeUrl": "/portfolio/resume.pdf",
-    "bio": "Backend Software Engineer working with Spring Boot, Python, and SQL, currently building a live AI-powered blogging platform end-to-end. Hands-on experience with REST APIs, NestJS, and applied AI features such as RAG, embeddings, and semantic search."
+    "bio": "Backend Software Engineer working with Python and SQL, currently building Blookmark, a platform for readers with blogs, book reviews, and self-discovery quizzes. Hands-on experience with REST APIs, NestJS, and applied AI features such as RAG, embeddings, and semantic search."
   },
 
   "navigation": [
@@ -44,17 +44,15 @@
       "location": "Remote",
       "startDate": "Jan 2026",
       "endDate": "Present",
-      "description": "Building Blookmark, a live AI-powered blogging platform, end-to-end with Spring Boot, React, MySQL, and Redis.",
+      "description": "Building Blookmark, a platform with blogs, book reviews, and self-discovery quizzes, end-to-end with Python, React, and MySQL.",
       "highlights": [
-        "Build and maintain Blookmark, a live AI-powered blogging platform, using Spring Boot, React, MySQL, and Redis — reaching 700+ users and 28K+ page views in 2026 with a 5m+ average engagement time, driven by organic search and social referrals.",
+        "Build and maintain Blookmark, a platform with blogs, book reviews, and self-discovery quizzes, using Python, React, and MySQL.",
         "Engineered AI-assisted content generation and semantic search with vector embeddings, plus a hierarchical CMS, JWT authentication with role-based access control, SEO optimization, and an analytics/admin dashboard.",
         "Automated Excel-to-MySQL data ingestion with Python pipelines that clean, validate, and load datasets, replacing manual data entry."
       ],
       "technologies": [
-        { "title": "Spring Boot", "img": "fa-java", "color": "#6DB33F" },
         { "title": "ReactJS", "img": "fa-react", "color": "#61DAFB" },
         { "title": "MySQL", "path": "true", "img": "/portfolio/mySql.png", "color": "#00758F" },
-        { "title": "Redis", "img": "fa-database", "prefix": "fa-solid", "color": "#DC382D" },
         { "title": "Python", "img": "fa-python", "color": "#3776AB" }
       ]
     },
@@ -67,7 +65,7 @@
       "endDate": "Dec 2025",
       "description": "Built production REST APIs and contributed to ATS platform, Harbor video conferencing integration, and Squareboat CMS across full-stack systems.",
       "highlights": [
-        "Delivered 15+ production REST APIs in NestJS, Django, and MySQL — reducing average API latency by 35% through query optimization and caching.",
+        "Delivered 15+ production REST APIs in NestJS, Django, and MySQL, reducing average API latency by 35% through query optimization and caching.",
         "Contributed frontend and backend features to an Applicant Tracking System (ATS) processing 500+ applications monthly, and integrated the Harbor video conferencing platform for candidate screening.",
         "Shipped enhancements and bug fixes to backend CMS features on Squareboat's live production platform."
       ],
@@ -100,17 +98,51 @@
 
   "projects": [
     {
-      "title": "Blookmark — AI-Powered Blogging Platform",
-      "description": "Live AI-powered blogging platform built with Spring Boot, React, MySQL, and Redis — 700+ users and 28K+ page views in 2026 with 5m+ average engagement. Features a hierarchical CMS, AI-assisted content generation, semantic search with vector embeddings, JWT auth, role-based access control, SEO optimization, analytics, and an admin dashboard.",
+      "title": "Blookmark: Reading and Self-Discovery Platform",
+      "description": "A platform for readers with blogs, book reviews, and self-discovery quizzes. Built with Python, React, and MySQL. Features a hierarchical CMS, AI-assisted content generation, semantic search with vector embeddings, JWT auth, role-based access control, SEO optimization, analytics, and an admin dashboard.",
       "github": "",
       "live": "https://www.blookmark.com",
       "techstack": [
-        { "title": "Spring Boot", "img": "fa-java", "color": "#6DB33F" },
+        { "title": "Python", "img": "fa-python", "color": "#3776AB" },
         { "title": "ReactJS", "img": "fa-react", "color": "#61DAFB" },
-        { "title": "MySQL", "path": "true", "img": "/portfolio/mySql.png", "color": "#00758F" },
-        { "title": "Redis", "img": "fa-database", "prefix": "fa-solid", "color": "#DC382D" }
+        { "title": "MySQL", "path": "true", "img": "/portfolio/mySql.png", "color": "#00758F" }
       ],
       "tags": ["fs", "ai"]
+    },
+    {
+      "title": "Sentinel",
+      "description": "An autonomous AI security investigator. An agent gathers evidence from identity, network, and application logs through read-only tools, a deterministic engine scores the risk, and any containment action waits for human approval before it runs.",
+      "github": "https://github.com/mank25/Sentinel",
+      "live": "https://youtu.be/4xhTaeH0Aq0",
+      "techstack": [
+        { "title": "Python", "img": "fa-python", "color": "#3776AB" },
+        { "title": "TypeScript", "path": "true", "img": "/portfolio/myTypescript.png", "color": "#007ACC" }
+      ],
+      "tags": ["ai", "b"]
+    },
+    {
+      "title": "Briefly",
+      "description": "A self-healing news intelligence platform. It scrapes curated sources, detects when a site change breaks a scraper, repairs it automatically, and turns the data into a personalised daily edition, with an admin console for the operator.",
+      "github": "https://github.com/mank25/briefly",
+      "live": "https://briefly-bmm.pages.dev/",
+      "techstack": [
+        { "title": "Python", "img": "fa-python", "color": "#3776AB" },
+        { "title": "JavaScript", "img": "fa-js", "color": "#F7DF1E" }
+      ],
+      "tags": ["ai", "fs"]
+    },
+    {
+      "title": "Mailmate",
+      "status": "Building",
+      "description": "An email manager that works like a buddy for your inbox. It connects to Gmail, surfaces the emails that matter, flags the ones that need a reply, and helps draft responses while you stay in control.",
+      "github": "https://github.com/mank25/mailmate",
+      "live": "",
+      "techstack": [
+        { "title": "Python", "img": "fa-python", "color": "#3776AB" },
+        { "title": "FastAPI", "path": "true", "img": "/portfolio/myAPI.png", "color": "#22C55E" },
+        { "title": "TypeScript", "path": "true", "img": "/portfolio/myTypescript.png", "color": "#007ACC" }
+      ],
+      "tags": ["ai", "fs"]
     },
     {
       "title": "Full Stack Job Portal",
@@ -132,8 +164,8 @@
       "github": "",
       "live": "",
       "socials": [
-        { "icon": "fa-brands fa-youtube", "label": "YouTube", "url": "https://www.youtube.com/@reddit.did.whatyt" },
-        { "icon": "fa-brands fa-instagram", "label": "Instagram", "url": "https://www.instagram.com/reddit.did.what" }
+        { "icon": "fa-brands fa-youtube", "label": "YouTube", "url": "https://www.youtube.com/@LoreLoop-n4l" },
+        { "icon": "fa-brands fa-instagram", "label": "Instagram", "url": "https://www.instagram.com/reddit.did.what/reels/" }
       ],
       "techstack": [
         { "title": "Python", "img": "fa-python", "color": "#3776AB" },
@@ -144,7 +176,7 @@
       "tags": ["ai", "fs"]
     },
     {
-      "title": "RAG — Retrieval-Augmented Generation",
+      "title": "RAG: Retrieval-Augmented Generation",
       "description": "RAG system built with Python, LangChain, embeddings, and vector databases. Implements document chunking, semantic search, retrieval pipelines, and LLM-powered question-answering workflows to improve response accuracy.",
       "github": "https://github.com/mank25/Rag",
       "live": "https://youtu.be/a2Z6O9m9OPY",
@@ -152,20 +184,6 @@
         { "title": "Python", "img": "fa-python", "color": "#3776AB" }
       ],
       "tags": ["ai", "b"]
-    },
-    {
-      "title": "Portfolio Maker",
-      "status": "Building",
-      "description": "Full-featured portfolio builder using TypeScript and MERN stack with dynamic templates, live publishing, and customizable design options.",
-      "github": "https://github.com/mank25/portfolio-maker",
-      "live": "",
-      "techstack": [
-        { "title": "TypeScript", "path": "true", "img": "/portfolio/myTypescript.png", "color": "#007ACC" },
-        { "title": "ReactJS", "img": "fa-react", "color": "#61DAFB" },
-        { "title": "NodeJS", "img": "fa-node-js", "color": "#84CC2B" },
-        { "title": "MongoDB", "path": "true", "img": "/portfolio/myMongo.png", "color": "#47A248" }
-      ],
-      "tags": ["fs"]
     },
     {
       "title": "Full Stack Blog",

@@ -1,4 +1,3 @@
-import React from "react";
 import Card from "../components/Card";
 import siteData from "./siteData.json";
 import { Tab } from "@headlessui/react";
@@ -15,42 +14,42 @@ const Project = () => {
 
   return (
     <section id="projects">
-      <p className="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-2">Work</p>
-      <h2 className="text-2xl font-bold text-slate-900 mb-10">Featured Projects</h2>
+      <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-10">
+        <h2 className="text-3xl sm:text-4xl font-semibold tracking-display leading-tight">
+          A few things I've made
+        </h2>
+      </div>
 
       <Tab.Group>
-        <div className="flex mb-8">
-          <Tab.List className="flex gap-1 p-1 bg-slate-100 rounded-lg">
-            {tabs.map((tab) => (
-              <Tab key={tab.label} as="div" className="focus:outline-none">
-                {({ selected }) => (
-                  <button
-                    className={`px-4 py-1.5 rounded-md text-sm font-medium transition-all ${
-                      selected
-                        ? "bg-white text-slate-900 shadow-sm"
-                        : "text-slate-500 hover:text-slate-700"
-                    }`}
-                  >
-                    {tab.label}
-                    <span className="ml-1.5 text-xs opacity-60">{tab.items.length}</span>
-                  </button>
-                )}
-              </Tab>
-            ))}
-          </Tab.List>
-        </div>
+        <Tab.List className="flex flex-wrap gap-x-1 gap-y-1 mb-8 border-b border-line">
+          {tabs.map((tab) => (
+            <Tab
+              key={tab.label}
+              className={({ selected }) =>
+                `relative px-3 py-2.5 -mb-px text-sm border-b-2 transition-colors outline-none focus-visible:text-ink ${
+                  selected
+                    ? "border-accent-hover text-ink"
+                    : "border-transparent text-ink-subtle hover:text-ink-muted"
+                }`
+              }
+            >
+              {tab.label}
+              <span className="ml-1.5 font-mono text-xs text-ink-subtle tabular-nums">{tab.items.length}</span>
+            </Tab>
+          ))}
+        </Tab.List>
 
         <Tab.Panels>
           {tabs.map((tab) => (
             <Tab.Panel key={tab.label}>
               {tab.items.length === 0 ? (
-                <div className="text-center py-16 text-slate-400 text-sm">
-                  No projects in this category yet.
-                </div>
+                <p className="py-16 text-sm text-ink-subtle">Nothing in this category yet.</p>
               ) : (
-                <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                <div className="grid gap-4 lg:grid-cols-2">
                   {tab.items.map((item, i) => (
-                    <Card key={i} props={item} />
+                    <div key={item.title} className={`rise flex ${i === 0 && tab.items.length > 2 ? "lg:col-span-2" : ""}`} style={{ "--i": i }}>
+                      <Card props={item} featured={i === 0 && tab.items.length > 2} />
+                    </div>
                   ))}
                 </div>
               )}

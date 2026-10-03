@@ -1,3 +1,174 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  font-family: 'Geist', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #fbfbfa;
+  color: #111214;
+  caret-color: #0e7c66;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3 {
+  text-wrap: balance;
+}
+
+p, li {
+  text-wrap: pretty;
+}
+
+::selection {
+  background: rgba(14, 124, 102, 0.22);
+  color: #111214;
+}
+
+:focus-visible {
+  outline: 2px solid #0e7c66;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+a {
+  text-underline-offset: 0.25em;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #fbfbfa;
+}
+::-webkit-scrollbar-thumb {
+  background: #d9d9d4;
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #bdbdb6;
+}
+
+/* Hero entrance: the one authored motion moment */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+    filter: blur(3px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: blur(0);
+  }
+}
+
+.rise {
+  animation: rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: calc(var(--i, 0) * 90ms);
+}
+
+@keyframes pulse-dot {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(39, 166, 68, 0.55); }
+  50% { box-shadow: 0 0 0 5px rgba(39, 166, 68, 0); }
+}
+
+.pulse-dot {
+  animation: pulse-dot 2.4s ease-out infinite;
+}
+
+/* Brand marks sit quiet until hovered, so one accent colour owns the page */
+.mark {
+  filter: grayscale(1);
+  opacity: 0.55;
+  transition: filter 0.2s, opacity 0.2s;
+}
+.chip:hover .mark,
+.mark:hover {
+  filter: none;
+  opacity: 1;
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1) var(--d, 0ms),
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) var(--d, 0ms);
+}
+.reveal.in {
+  opacity: 1;
+  transform: none;
+}
+
+/* Cursor-following glow, positioned by PointerFx */
+.spot {
+  position: relative;
+  isolation: isolate;
+}
+.spot::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.35s;
+  background: radial-gradient(var(--r, 340px) circle at var(--mx, 50%) var(--my, 50%), rgba(14, 124, 102, 0.07), transparent 65%);
+}
+.spot:hover::before {
+  opacity: 1;
+}
+
+/* Typing caret */
+.caret {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  margin-left: 3px;
+  vertical-align: -0.12em;
+  background: #0e7c66;
+  animation: blink 1.05s steps(1) infinite;
+}
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* Experience timeline dot lights up as its entry arrives */
+.dot {
+  background: #e6e6e2;
+  border: 1px solid #cfcfca;
+  transition: background-color 0.6s 0.2s, box-shadow 0.6s 0.2s, border-color 0.6s 0.2s;
+}
+.reveal.in .dot {
+  background: #686c74;
+  border-color: #686c74;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+  .caret {
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

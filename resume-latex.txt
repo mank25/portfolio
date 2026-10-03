@@ -1,0 +1,172 @@
+\documentclass[10pt, letterpaper]{article}
+
+% Packages
+\usepackage[
+    ignoreheadfoot,
+    top=1.0cm,
+    bottom=1.0cm,
+    left=1.0cm,
+    right=1.0cm,
+    footskip=0.3cm
+]{geometry}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage[dvipsnames]{xcolor}
+\definecolor{primaryColor}{RGB}{0,0,0}
+\usepackage{enumitem}
+\usepackage{etoolbox}
+\usepackage[
+    pdftitle={Mayank Sharma CV},
+    pdfauthor={Mayank Sharma},
+    colorlinks=true,
+    urlcolor=primaryColor
+]{hyperref}
+\usepackage{changepage}
+\usepackage{paracol}
+\usepackage{needspace}
+\usepackage{iftex}
+
+\ifPDFTeX
+    \input{glyphtounicode}
+    \pdfgentounicode=1
+    \usepackage[T1]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage{lmodern}
+\fi
+
+\usepackage{charter}
+
+% Settings
+\raggedright
+\AtBeginEnvironment{adjustwidth}{\partopsep0pt}
+\pagestyle{empty}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\columnsep}{0.12cm}
+\pagenumbering{gobble}
+\linespread{1.0}
+
+\titleformat{\section}{\needspace{3\baselineskip}\bfseries\large}{}{0pt}{}[\vspace{1pt}\titlerule]
+\titlespacing{\section}{-1pt}{0.12cm}{0.07cm}
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\small$\bullet$}}$}
+\setlist[itemize]{topsep=0.03cm,itemsep=0pt,parsep=0.03cm,left=0.35cm}
+
+% Custom Environments
+\newenvironment{highlights}{\begin{itemize}}{\end{itemize}}
+\newenvironment{onecolentry}{\begin{adjustwidth}{0.00001cm}{0.00001cm}}{\end{adjustwidth}}
+\newenvironment{twocolentry}[2][]{\onecolentry \def\secondColumn{#2} \setcolumnwidth{\fill, 4.5cm}\begin{paracol}{2}}{\switchcolumn \raggedleft \secondColumn \end{paracol}\endonecolentry}
+\newenvironment{header}{\setlength{\topsep}{0pt}\par\kern\topsep\centering\linespread{1.2}}{\par\kern\topsep}
+
+% Custom link command
+\newcommand{\resumeLink}[2]{\href{#2}{#1}}
+
+\newcommand{\AND}{\unskip \cleaders\copy\ANDbox\hskip\wd\ANDbox \ignorespaces}
+\newsavebox\ANDbox \sbox\ANDbox{$|$}
+
+% Document
+\begin{document}
+
+\begin{header}
+    \fontsize{23 pt}{23 pt}\selectfont Mayank Sharma
+
+    \vspace{2 pt}
+
+    \normalsize Backend Software Engineer
+
+    \vspace{2 pt}
+
+    \normalsize
+    \mbox{New Delhi, India} \kern1pt \AND \kern1pt
+    \mbox{\href{mailto:workwithmayanksharma@gmail.com}{workwithmayanksharma@gmail.com}} \kern1pt \AND \kern1pt
+    \mbox{+91 8826004402} \kern1pt \AND \kern1pt
+    \mbox{\href{https://www.linkedin.com/in/mayank-sharma025}{linkedin.com/in/mayank-sharma025}} \kern1pt \AND \kern1pt
+    \mbox{\href{https://github.com/mank25}{github.com/mank25}} \kern1pt \AND \kern1pt
+    \mbox{\href{https://mank25.github.io/portfolio/}{mank25.github.io/portfolio}}
+\end{header}
+
+\section{Summary}
+\begin{onecolentry}
+Backend Software Engineer working with Python and SQL, currently building Blookmark, a platform for readers. Hands-on experience with REST APIs, NestJS, and applied AI such as RAG, embeddings, and semantic search.
+\end{onecolentry}
+
+\section{Education}
+\begin{onecolentry}
+\begin{itemize}[left=0pt, itemsep=2pt]
+    \item \textbf{SRM Institute of Science and Technology} \hfill \textit{Sept 2021 -- Jul 2025} \\
+    Bachelor of Technology (B.Tech) in Computer Science and Engineering, \textbf{CGPA: 8.17/10}
+\end{itemize}
+\end{onecolentry}
+
+\section{Experience}
+
+\begin{twocolentry}{Jan 2026 -- present}
+    \textbf{Software Engineer}, Infomenja Services
+\end{twocolentry}
+\begin{onecolentry}
+    \begin{highlights}
+        \item Build and maintain \resumeLink{\textbf{Blookmark}}{https://www.blookmark.com}, a live platform with blogs, book reviews, and self-discovery quizzes, using \textbf{Python, React, and MySQL}.
+        \item Engineered AI-assisted content generation and \textbf{semantic search with vector embeddings}, plus a hierarchical CMS, JWT authentication with role-based access control, SEO optimization, and an analytics/admin dashboard.
+        \item Automated Excel-to-\textbf{MySQL} data ingestion with \textbf{Python} pipelines that clean, validate, and load datasets, replacing manual data entry.
+    \end{highlights}
+\end{onecolentry}
+
+\begin{twocolentry}{Jun 2025 -- Dec 2025}
+    \textbf{Software Engineer Intern}, Squareboat
+\end{twocolentry}
+\begin{onecolentry}
+    \begin{highlights}
+        \item Delivered \textbf{15+ production REST APIs} in \textbf{NestJS, Django, and MySQL}, reducing average API latency by \textbf{35\%} through query optimization and caching.
+        \item Contributed frontend and backend features to an Applicant Tracking System (ATS) processing \textbf{500+ applications monthly}, and integrated the Harbor video conferencing platform for candidate screening.
+        \item Shipped enhancements and bug fixes to backend CMS features on Squareboat's live production platform.
+    \end{highlights}
+\end{onecolentry}
+
+\begin{twocolentry}{Jul 2023 -- Aug 2023}
+    \textbf{Software Engineer Intern}, Tresor Systems
+\end{twocolentry}
+\begin{onecolentry}
+    \begin{highlights}
+        \item Implemented secure document-upload features for an employee onboarding portal used by the HR team, streamlining onboarding for new hires.
+        \item Improved HR efficiency by centralizing employee records and digitizing document collection for 100+ onboarding cases, reducing manual paperwork.
+    \end{highlights}
+\end{onecolentry}
+
+\section{Projects}
+\begin{onecolentry}
+    \begin{highlights}
+        \item \textbf{Briefly: Self-Healing Web Intelligence Platform} -- \resumeLink{github.com/mank25/briefly}{https://github.com/mank25/briefly} \\
+        Built a self-healing news intelligence platform using \textbf{Python, FastAPI, React, SQLAlchemy, Bright Data, and LLMs}; automated web scraping, schema normalization, scraper health monitoring, and self-repair while delivering personalized news briefs.
+
+        \item \textbf{Full Stack Job Portal} -- \resumeLink{github.com/mank25/job-portal}{https://github.com/mank25/job-portal} \\
+        Built a full-stack job portal using \textbf{Python, FastAPI, React, MySQL, Redis, and Celery}; implemented JWT authentication with role-based access control, job application workflows, and asynchronous background task processing.
+
+        \item \textbf{Retrieval-Augmented Generation (RAG) System} -- \resumeLink{github.com/mank25/Rag}{https://github.com/mank25/Rag} \\
+        Created a RAG question-answering system with \textbf{Python, LangChain}, embeddings, and vector databases; implemented document chunking, semantic search, and retrieval pipelines to ground LLM answers in source documents.
+    \end{highlights}
+\end{onecolentry}
+
+\section{Technical Skills}
+\begin{onecolentry}
+\textbf{Languages:} Python, SQL, JavaScript, TypeScript \\
+\textbf{Frameworks:} FastAPI, Django, NestJS, Node.js, React \\
+\textbf{AI / LLM Tools:} LangChain, Hugging Face, RAG Pipelines, Vector Databases, Embeddings, Semantic Search \\
+\textbf{Databases / Storage:} MySQL, MongoDB, Redis \\
+\textbf{Tools / Platforms:} Git, Docker, Azure, Postman, Bitbucket, Linux \\
+\textbf{Integrations \& Automation:} Meta APIs, WhatsApp Automation, Google OAuth, GTM, GA4, SMTP, Email Automation \\
+\textbf{Concepts:} REST APIs, ETL Pipelines, Data Modeling, Query Optimization, Auth \& Authorization, Chunking Strategies, Agile
+\end{onecolentry}
+
+\section{Certifications}
+\begin{onecolentry}
+\begin{tabularx}{\textwidth}{X X}
+\resumeLink{\textbf{NPTEL}: Data Mining}{https://drive.google.com/file/d/1zBoc8JTn36RkGBUfqqiGvRv1AlpVlNLE/view?usp=sharing} &
+\resumeLink{\textbf{NPTEL}: Google Cloud}{https://drive.google.com/file/d/1LMeyhGmvBXK3uWSpNSv-uyqowJF3K6I1/view?usp=sharing} \\
+\resumeLink{\textbf{Udemy}: MERN \& GenAI 2025}{https://drive.google.com/file/d/1F27aI35CB6RAzyWWEgGdOQRuPhtqfIdw/view?usp=sharing} &
+\resumeLink{\textbf{Udemy}: Complete Pandas}{https://drive.google.com/file/d/1w1SdjP4NJkmJwFkCIRFylXMcvDHA3Qp0/view?usp=sharing} \\
+\multicolumn{2}{X}{\textbf{Udemy}: Ultimate RAG Bootcamp Using LangChain, LangGraph and LangSmith} \\
+\end{tabularx}
+\end{onecolentry}
+
+\end{document}

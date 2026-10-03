@@ -1,10 +1,13 @@
-import "./App.css";
+import { useState } from "react";
 import Project from "./pages/Project";
 import Experience from "./components/Experience";
 import Contact from "./components/Contact";
 import Navbar from "./components/Navbar";
+import TechIcon from "./components/TechIcon";
+import Socials from "./components/Socials";
+import CommandPalette from "./components/CommandPalette";
+import { Reveal, ScrollProgress, PointerFx, Rotator } from "./components/fx";
 import siteData from "./pages/siteData.json";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
@@ -25,6 +28,9 @@ import {
   faBitbucket,
   faYoutube,
   faInstagram,
+  faMeta,
+  faWhatsapp,
+  faGoogle,
 } from "@fortawesome/free-brands-svg-icons";
 
 library.add(
@@ -44,7 +50,10 @@ library.add(
   faLinux,
   faBitbucket,
   faYoutube,
-  faInstagram
+  faInstagram,
+  faMeta,
+  faWhatsapp,
+  faGoogle
 );
 
 const techStack = [
@@ -94,6 +103,18 @@ const techStack = [
     ],
   },
   {
+    category: "Integrations & Automation",
+    items: [
+      { title: "Meta APIs",                img: "fa-meta",      color: "#0668E1" },
+      { title: "WhatsApp Automation",      img: "fa-whatsapp",  color: "#25D366" },
+      { title: "Google OAuth",             img: "fa-google",    color: "#4285F4" },
+      { title: "Google Tag Manager",       img: "fa-tags",      prefix: "fa-solid", color: "#4285F4" },
+      { title: "Google Analytics 4",       img: "fa-chart-line", prefix: "fa-solid", color: "#F9AB00" },
+      { title: "SMTP",                     img: "fa-envelope",  prefix: "fa-solid", color: "#8A8F98" },
+      { title: "Email Automation",         img: "fa-envelope-open-text", prefix: "fa-solid", color: "#EA4335" },
+    ],
+  },
+  {
     category: "Concepts & Skills",
     items: [
       { title: "REST API Development", img: "fa-plug",         prefix: "fa-solid", color: "#6366F1" },
@@ -108,189 +129,144 @@ const techStack = [
 ];
 
 const TechChip = ({ item }) => (
-  <span className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-white border border-slate-200 text-xs font-medium text-slate-700 hover:border-slate-300 transition-colors">
-    {item.path ? (
-      <img src={item.img} alt={item.title} className="w-4 h-4 object-contain" />
-    ) : item.svgPath ? (
-      <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill={item.svgColor || "currentColor"}>
-        <path d={item.svgPath} />
-      </svg>
-    ) : (
-      <FontAwesomeIcon
-        icon={item.prefix ? `${item.prefix} ${item.img}` : `fa-brands ${item.img}`}
-        style={{ color: item.color }}
-        className="text-sm"
-      />
-    )}
+  <li className="chip inline-flex items-center gap-2 px-2.5 py-1.5 rounded-md border border-line bg-surface-1 text-[13px] text-ink-muted hover:border-line-strong hover:text-ink transition-colors">
+    <TechIcon item={item} />
     {item.title}
-  </span>
+  </li>
 );
 
 function App() {
   const { profile } = siteData;
+  const [paletteOpen, setPaletteOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-white text-slate-900">
-      <Navbar />
+    <div className="min-h-screen bg-canvas text-ink">
+      <a
+        href="#main"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60] focus:px-3 focus:py-2 focus:rounded-md focus:bg-accent focus:text-canvas"
+      >
+        Skip to content
+      </a>
+      <ScrollProgress />
+      <PointerFx />
+      <CommandPalette open={paletteOpen} setOpen={setPaletteOpen} />
+      <Navbar onOpenPalette={() => setPaletteOpen(true)} />
 
       {/* Hero */}
-      <section
+      <header
         id="about"
-        className="min-h-screen flex items-center px-6 lg:px-8 pt-20 pb-24 relative overflow-hidden"
+        className="relative min-h-[100dvh] flex items-center px-6 lg:px-8 pt-28 pb-20 overflow-hidden"
       >
-        {/* Subtle dot-grid background */}
         <div
-          className="absolute inset-0 pointer-events-none"
+          aria-hidden="true"
+          className="absolute inset-x-0 top-0 h-[34rem] pointer-events-none"
           style={{
-            backgroundImage: "radial-gradient(circle, #cbd5e1 1px, transparent 1px)",
-            backgroundSize: "28px 28px",
-            opacity: 0.45,
+            background:
+              "radial-gradient(ellipse 60% 70% at 25% 0%, rgba(14,124,102,0.08), transparent 70%)",
           }}
         />
-        <div className="absolute bottom-0 inset-x-0 h-40 bg-gradient-to-t from-white pointer-events-none" />
 
-        <div className="max-w-6xl mx-auto w-full relative z-10">
-          <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-center">
+        <div className="relative max-w-6xl mx-auto w-full grid lg:grid-cols-12 gap-14 items-center">
+          <div className="lg:col-span-8">
+            <p className="rise inline-flex items-center gap-2.5 text-sm text-ink-subtle" style={{ "--i": 0 }}>
+              <span className="pulse-dot w-1.5 h-1.5 rounded-full bg-[#27a644]" />
+              Building Blookmark, a platform for readers with blogs, book reviews, and quizzes
+            </p>
 
-            {/* Left: Text */}
-            <div className="lg:col-span-3 space-y-8">
-              <div className="flex items-center gap-3">
-                <span className="w-6 h-px bg-slate-400"></span>
-                <span className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">
-                  New Delhi, India
-                </span>
-              </div>
+            <h1
+              className="rise mt-7 text-[clamp(3rem,9vw,6rem)] font-semibold tracking-display leading-[0.98]"
+              style={{ "--i": 1 }}
+            >
+              {profile.name}
+            </h1>
 
-              <div className="space-y-4">
-                <h1 className="text-5xl sm:text-6xl lg:text-[4.5rem] font-black tracking-tighter text-slate-900 leading-[0.95]">
-                  {profile.name}
-                </h1>
-                <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-                  {["Backend Systems", "REST APIs", "Data Pipelines"].map((tag, i, arr) => (
-                    <span key={tag} className="flex items-center gap-3">
-                      <span className="text-sm font-medium text-slate-500">{tag}</span>
-                      {i < arr.length - 1 && <span className="text-slate-300 text-xs">·</span>}
-                    </span>
-                  ))}
-                </div>
-              </div>
+            <p
+              className="rise mt-5 text-xl sm:text-2xl text-ink-muted tracking-tight2"
+              style={{ "--i": 2 }}
+            >
+              {profile.title}, New Delhi.
+            </p>
 
-              <p className="text-base text-slate-600 leading-[1.8] max-w-md">
-                {profile.bio}
-              </p>
+            <p className="rise mt-3 text-base sm:text-lg text-ink-subtle" style={{ "--i": 2 }}>
+              I build <Rotator words={["web apps", "REST APIs", "AI and RAG systems", "automation and integrations", "data pipelines"]} />
+            </p>
 
-              <div className="flex flex-wrap gap-3">
-                <a
-                  href={profile.resumeUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-slate-900 text-white text-sm font-medium rounded-lg hover:bg-slate-800 transition-colors shadow-sm"
-                >
-                  View Resume
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </a>
-                <a
-                  href="#contact"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-white border border-slate-200 text-slate-700 text-sm font-medium rounded-lg hover:border-slate-400 hover:text-slate-900 transition-colors"
-                >
-                  Get in touch
-                </a>
-              </div>
+            <p className="rise mt-8 max-w-[62ch] text-base sm:text-lg leading-relaxed text-ink-subtle" style={{ "--i": 3 }}>
+              {profile.bio}
+            </p>
 
-              <div className="pt-1 border-t border-slate-100">
-                <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-400 mb-3 mt-4">
-                  Connect
-                </p>
-                <div className="flex flex-wrap items-center gap-6">
-                  {[
-                    { icon: "fa-brands fa-github",   label: "GitHub",   url: "https://github.com/mank25" },
-                    { icon: "fa-brands fa-linkedin",  label: "LinkedIn", url: "https://www.linkedin.com/in/mayank-sharma025/" },
-                    { icon: "fa-solid fa-envelope",   label: "Email",    url: "mailto:workwithmayanksharma@gmail.com" },
-                  ].map((s) => (
-                    <a
-                      key={s.label}
-                      href={s.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-sm text-slate-500 hover:text-slate-900 transition-colors"
-                    >
-                      <FontAwesomeIcon icon={s.icon} className="text-base" />
-                      <span className="font-medium">{s.label}</span>
-                    </a>
-                  ))}
-                  <a
-                    href="https://leetcode.com/u/mank25/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm text-slate-500 hover:text-slate-900 transition-colors"
-                  >
-                    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.593.48 1.461.387 1.94-.207a1.384 1.384 0 0 0-.207-1.943l-3.5-2.831c-.8-.647-1.766-1.045-2.774-1.202l2.015-2.158A1.384 1.384 0 0 0 13.483 0zm-2.866 12.815a1.38 1.38 0 0 0-1.38 1.382 1.38 1.38 0 0 0 1.38 1.382H20.79a1.38 1.38 0 0 0 1.38-1.382 1.38 1.38 0 0 0-1.38-1.382z" />
-                    </svg>
-                    <span className="font-medium">LeetCode</span>
-                  </a>
-                </div>
-              </div>
+            <div className="rise mt-10 flex flex-wrap items-center gap-x-6 gap-y-4" style={{ "--i": 4 }}>
+              <a
+                href={profile.resumeUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 h-11 px-5 rounded-lg bg-accent text-canvas text-sm font-medium hover:bg-accent-hover active:scale-[0.98] transition-[background-color,transform] duration-200"
+              >
+                View resume
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </a>
+              <a
+                href="#contact"
+                className="text-sm font-medium text-ink-muted hover:text-ink underline decoration-line-strong hover:decoration-ink-subtle transition-colors"
+              >
+                Get in touch
+              </a>
+              <Socials className="sm:ml-auto" />
             </div>
+          </div>
 
-            {/* Right: Photo */}
-            <div className="lg:col-span-2 flex justify-center lg:justify-end order-first lg:order-last">
-              <div className="relative">
-                <div className="absolute -top-3 -left-3 w-full h-full rounded-2xl bg-slate-100 border border-slate-200 pointer-events-none" />
-                <img
-                  src={profile.image}
-                  alt={profile.name}
-                  className="relative w-60 h-72 sm:w-64 sm:h-80 lg:w-72 lg:h-[22rem] object-cover rounded-2xl shadow-md"
-                  loading="lazy"
-                />
-              </div>
+          <div className="rise lg:col-span-4 flex lg:justify-end" style={{ "--i": 3 }}>
+            <div>
+              <img
+                src={profile.image}
+                alt={`Portrait of ${profile.name}`}
+                className="w-44 h-56 sm:w-56 sm:h-72 lg:w-64 lg:h-80 object-cover rounded-2xl border border-line grayscale-[0.25] hover:grayscale-0 transition-[filter] duration-500"
+              />
             </div>
           </div>
         </div>
-      </section>
+      </header>
 
-      <main>
-        {/* Tech */}
-        <section className="py-20 px-6 lg:px-8 bg-slate-50">
-          <div className="max-w-6xl mx-auto">
-            <p className="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-2">Stack</p>
-            <h2 className="text-2xl font-bold text-slate-900 mb-12">Technologies I Work With</h2>
+      <main id="main">
+        {/* Stack */}
+        <section id="stack" className="px-6 lg:px-8 py-24 border-t border-line">
+          <div className="max-w-6xl mx-auto grid lg:grid-cols-12 gap-x-12 gap-y-10">
+            <h2 className="lg:col-span-4 text-3xl sm:text-4xl font-semibold tracking-display leading-tight lg:sticky lg:top-24 self-start">
+              Tools I reach for
+            </h2>
 
-            <div className="space-y-8">
-              {techStack.map(({ category, items }) => (
-                <div key={category}>
-                  <p className="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-3">
-                    {category}
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {items.map((item) => (
-                      <TechChip key={item.title} item={item} />
-                    ))}
-                  </div>
-                </div>
+            <dl className="lg:col-span-8 divide-y divide-line">
+              {techStack.map(({ category, items }, ci) => (
+                <Reveal key={category} delay={ci * 70} className="py-6 first:pt-0 grid sm:grid-cols-[10rem_1fr] gap-3 sm:gap-8">
+                  <dt className="text-sm text-ink-subtle pt-1.5">{category}</dt>
+                  <dd>
+                    <ul className="flex flex-wrap gap-2">
+                      {items.map((item) => (
+                        <TechChip key={item.title} item={item} />
+                      ))}
+                    </ul>
+                  </dd>
+                </Reveal>
               ))}
-            </div>
+            </dl>
           </div>
         </section>
 
-        {/* Experience */}
-        <section className="py-20 px-6 lg:px-8">
+        <section className="px-6 lg:px-8 py-24 border-t border-line">
           <div className="max-w-6xl mx-auto">
             <Experience />
           </div>
         </section>
 
-        {/* Projects */}
-        <section className="py-20 px-6 lg:px-8 bg-slate-50">
+        <section className="px-6 lg:px-8 py-24 border-t border-line">
           <div className="max-w-6xl mx-auto">
             <Project />
           </div>
         </section>
 
-        {/* Contact */}
-        <section className="py-20 px-6 lg:px-8">
+        <section className="px-6 lg:px-8 pt-24 pb-12 border-t border-line">
           <div className="max-w-6xl mx-auto">
             <Contact />
           </div>

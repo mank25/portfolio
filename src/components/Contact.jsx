@@ -1,145 +1,127 @@
+import { useState } from "react";
 import Socials from "./Socials";
 import siteData from "../pages/siteData.json";
 
-const infoItems = [
-  {
-    label: "Email",
-    value: "workwithmayanksharma@gmail.com",
-    icon: (
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={1.5}
-        d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-      />
-    ),
-  },
-  {
-    label: "Location",
-    value: "New Delhi, India",
-    icon: (
-      <>
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={1.5}
-          d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-        />
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={1.5}
-          d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-        />
-      </>
-    ),
-  },
-  {
-    label: "Response Time",
-    value: "Usually within 24 hours",
-    icon: (
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={1.5}
-        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-      />
-    ),
-  },
-];
+const fieldClass =
+  "w-full px-4 py-3 rounded-lg bg-surface-1 border border-line text-[15px] text-ink placeholder:text-ink-subtle hover:border-line-strong focus:outline-none focus:border-accent-hover focus:ring-2 focus:ring-accent/30 transition-[border-color,box-shadow] duration-200";
 
 const Contact = () => {
   const { contact } = siteData;
+  const email = "workwithmayanksharma@gmail.com";
+  const [status, setStatus] = useState("idle"); // idle | sending | sent | error
+
+  // FormSubmit emails every submission to `email`; AJAX keeps the visitor on the page.
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    setStatus("sending");
+    try {
+      const res = await fetch(`https://formsubmit.co/ajax/${email}`, {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: new FormData(form),
+      });
+      const data = await res.json();
+      if (!res.ok || data.success === "false") throw new Error();
+      form.reset();
+      setStatus("sent");
+    } catch {
+      setStatus("error");
+    }
+  };
 
   return (
     <section id="contact">
-      <p className="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-2">
-        Contact
-      </p>
-      <h2 className="text-2xl font-bold text-slate-900 mb-3">Let&apos;s Work Together</h2>
-      <p className="text-slate-500 text-sm mb-10 max-w-md">
-        Have a project in mind or just want to connect? I&apos;d love to hear from you.
-      </p>
+      <div className="grid lg:grid-cols-12 gap-x-12 gap-y-12">
+        <div className="lg:col-span-5">
+          <h2 className="text-4xl sm:text-5xl font-semibold tracking-display leading-[1.05]">
+            Let&apos;s work together.
+          </h2>
+          <p className="mt-5 max-w-[42ch] text-base text-ink-subtle leading-relaxed">
+            Have a project in mind, a role to fill, or just want to connect? I usually reply within 24 hours.
+          </p>
+          <a
+            href={`mailto:${email}`}
+            className="mt-8 inline-block text-lg text-ink underline decoration-line-strong hover:decoration-accent-hover transition-colors break-all"
+          >
+            {email}
+          </a>
+          <p className="mt-2 text-sm text-ink-subtle">New Delhi, India</p>
+          <Socials className="mt-8" />
+        </div>
 
-      <div className="grid lg:grid-cols-2 gap-12 items-start">
-        {/* Form */}
         <form
-          action="https://formsubmit.co/workwithmayanksharma@gmail.com"
+          action={`https://formsubmit.co/${email}`}
           method="POST"
-          className="space-y-4"
+          onSubmit={onSubmit}
+          className="lg:col-span-7 lg:pl-8 space-y-4"
         >
+          <input type="hidden" name="_subject" value="New message from your portfolio" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="text" name="_honey" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
           <div className="grid sm:grid-cols-2 gap-4">
             {contact.formFields
               .filter((f) => f.type !== "textarea")
-              .map((field, i) => (
-                <input
-                  key={i}
-                  type={field.type}
-                  name={field.name}
-                  placeholder={field.placeholder}
-                  required={field.required}
-                  className="w-full px-4 py-3 bg-white border border-slate-200 rounded-lg text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-slate-400 transition-colors"
-                />
+              .map((field) => (
+                <div key={field.name}>
+                  <label htmlFor={`f-${field.name}`} className="sr-only">
+                    {field.placeholder}
+                  </label>
+                  <input
+                    id={`f-${field.name}`}
+                    type={field.type}
+                    name={field.name}
+                    placeholder={field.placeholder}
+                    required={field.required}
+                    autoComplete={field.type === "email" ? "email" : "name"}
+                    className={fieldClass}
+                  />
+                </div>
               ))}
           </div>
 
           {contact.formFields
             .filter((f) => f.type === "textarea")
-            .map((field, i) => (
-              <textarea
-                key={i}
-                name={field.name}
-                placeholder={field.placeholder}
-                rows={field.rows}
-                required={field.required}
-                className="w-full px-4 py-3 bg-white border border-slate-200 rounded-lg text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-slate-400 transition-colors resize-none"
-              />
+            .map((field) => (
+              <div key={field.name}>
+                <label htmlFor={`f-${field.name}`} className="sr-only">
+                  {field.placeholder}
+                </label>
+                <textarea
+                  id={`f-${field.name}`}
+                  name={field.name}
+                  placeholder={field.placeholder}
+                  rows={field.rows}
+                  required={field.required}
+                  className={`${fieldClass} resize-none`}
+                />
+              </div>
             ))}
 
           <button
             type="submit"
-            className="w-full py-3 bg-slate-900 text-white text-sm font-medium rounded-lg hover:bg-slate-800 transition-colors"
+            disabled={status === "sending"}
+            className="h-11 px-6 disabled:opacity-60 disabled:cursor-not-allowed rounded-lg bg-accent text-canvas text-sm font-medium hover:bg-accent-hover active:scale-[0.98] transition-[background-color,transform] duration-200"
           >
-            Send Message
+            {status === "sending" ? "Sending..." : "Send message"}
           </button>
+
+          <p role="status" aria-live="polite" className="min-h-5 text-sm text-ink-subtle">
+            {status === "sent" && "Thanks, your message is on its way. I'll reply soon."}
+            {status === "error" && `Something went wrong. Please try again or email ${email}.`}
+          </p>
         </form>
-
-        {/* Info */}
-        <div className="space-y-8">
-          <div className="space-y-5">
-            {infoItems.map(({ icon, label, value }) => (
-              <div key={label} className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-lg bg-slate-100 flex items-center justify-center shrink-0">
-                  <svg
-                    className="w-5 h-5 text-slate-600"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    {icon}
-                  </svg>
-                </div>
-                <div>
-                  <p className="text-sm font-medium text-slate-900">{label}</p>
-                  <p className="text-sm text-slate-500 mt-0.5">{value}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div>
-            <p className="text-sm font-medium text-slate-900 mb-3">Connect</p>
-            <Socials />
-          </div>
-        </div>
       </div>
 
-      {/* Footer */}
-      <div className="mt-20 pt-8 border-t border-slate-100 text-center">
-        <p className="text-sm text-slate-400">
-          {contact.copyrightText} {new Date().getFullYear()} Mayank Sharma. All rights reserved.
+      <footer className="mt-24 pt-6 border-t border-line flex flex-col sm:flex-row justify-between gap-2 text-xs text-ink-subtle">
+        <p>
+          {contact.copyrightText} {new Date().getFullYear()} Mayank Sharma
         </p>
-      </div>
+        <a href="#about" className="hover:text-ink transition-colors">
+          Back to top
+        </a>
+      </footer>
     </section>
   );
 };

@@ -1,55 +1,49 @@
+import { Reveal } from "./fx";
 import siteData from "../pages/siteData.json";
 
 const Experience = () => {
   const { experience } = siteData;
 
   return (
-    <section id="experience">
-      <p className="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-2">
-        Career
-      </p>
-      <h2 className="text-2xl font-bold text-slate-900 mb-10">Work Experience</h2>
+    <section id="experience" className="grid lg:grid-cols-12 gap-x-12 gap-y-10">
+      <h2 className="lg:col-span-4 text-3xl sm:text-4xl font-semibold tracking-display leading-tight lg:sticky lg:top-24 self-start">
+        Where I&apos;ve worked
+      </h2>
 
-      <div className="relative space-y-5">
-        {/* Vertical timeline line */}
-        <div className="absolute left-[7px] top-3 bottom-3 w-px bg-slate-200 hidden sm:block"></div>
+      <ol className="lg:col-span-8 relative pl-7 border-l border-line space-y-10">
+        {experience.map((exp, i) => (
+          <Reveal as="li" key={exp.id} delay={i * 80} className="relative">
+            <span aria-hidden="true" className="dot absolute -left-[33px] top-2 w-2.5 h-2.5 rounded-full" />
+            <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 sm:gap-6">
+              <h3 className="text-xl font-medium tracking-tight2">
+                {exp.position}
+                <span className="text-ink-subtle"> · {exp.company}</span>
+              </h3>
+              <p className="font-mono text-xs text-ink-subtle whitespace-nowrap tabular-nums">
+                {exp.startDate} – {exp.endDate}
+              </p>
+            </div>
+            {exp.location && <p className="mt-1 text-sm text-ink-subtle">{exp.location}</p>}
 
-        {experience.map((exp) => (
-          <div key={exp.id} className="relative sm:pl-8">
-            {/* Timeline dot */}
-            <div className="absolute left-0 top-5 w-3.5 h-3.5 rounded-full border-2 border-slate-300 bg-white hidden sm:block"></div>
+            <ul className="mt-5 space-y-3">
+              {exp.highlights.map((h, i) => (
+                <li key={i} className="flex gap-3 text-[15px] leading-relaxed text-ink-muted">
+                  <span aria-hidden="true" className="mt-[0.7em] w-1 h-1 rounded-full bg-ink-subtle shrink-0" />
+                  <span className="max-w-[68ch]">{h}</span>
+                </li>
+              ))}
+            </ul>
 
-            <div className="bg-white border border-slate-200 rounded-xl p-5 hover:border-slate-300 hover:shadow-sm transition-all duration-200">
-              {/* Header */}
-              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-4">
-                <div>
-                  <h3 className="font-semibold text-slate-900 text-base">{exp.position}</h3>
-                  <p className="text-sm text-slate-500 mt-0.5">
-                    {exp.company}
-                    {exp.location && (
-                      <span className="text-slate-400"> · {exp.location}</span>
-                    )}
-                  </p>
-                </div>
-                <span className="inline-flex items-center px-2.5 py-1 rounded-md bg-slate-100 text-xs font-medium text-slate-600 whitespace-nowrap shrink-0">
-                  {exp.startDate} – {exp.endDate}
-                </span>
-              </div>
-
-              {/* Highlights */}
-              <ul className="space-y-2 mb-5">
-                {exp.highlights.map((h, idx) => (
-                  <li key={idx} className="flex items-start gap-2.5 text-sm text-slate-600">
-                    <span className="mt-2 w-1 h-1 rounded-full bg-slate-400 shrink-0"></span>
-                    {h}
-                  </li>
+            {exp.technologies?.length > 0 && (
+              <ul className="mt-5 flex flex-wrap gap-x-4 gap-y-1.5 font-mono text-xs text-ink-subtle">
+                {exp.technologies.map((t) => (
+                  <li key={t.title}>{t.title}</li>
                 ))}
               </ul>
-
-            </div>
-          </div>
+            )}
+          </Reveal>
         ))}
-      </div>
+      </ol>
     </section>
   );
 };
